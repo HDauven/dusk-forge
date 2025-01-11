@@ -1,0 +1,15 @@
+[package]
+name = "dusk-forge"
+authors = ["Hein Dauven"]
+version = "0.1.0"
+edition = "2021"
+description = "A smart contract development framework for Dusk"
+license = "MPL-2.0"
+
+[dependencies]
+syn = { version = "2.0.44", features = ["full"] }
+quote = "1.0.34"
+piecrust-uplink = "0.9.0"
+
+[lib]
+proc-macro = true
