@@ -90,7 +90,7 @@ pub fn expand_contract(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 let generated_function = quote! {
                     #[no_mangle]
                     pub unsafe fn #method_name(arg_len: u32) -> u32 {
-                        piecrust_uplink::wrap_call(arg_len, |(#(#arg_pattern),*): (#(#arg_types),*)| #call_block)
+                        dusk_core::abi::wrap_call(arg_len, |(#(#arg_pattern),*): (#(#arg_types),*)| #call_block)
                     }
                 };
 

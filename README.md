@@ -3,7 +3,7 @@
 [![Repository](https://img.shields.io/badge/github-dusk%20forge-blueviolet?logo=github)](https://github.com/HDauven/dusk-forge)
 [![Documentation](https://img.shields.io/badge/docs-dusk%20forge-blue?logo=rust)](https://docs.rs/dusk-forge/)
 
-`dusk-forge` is a smart contract development framework designed to simplify the
+Dusk Forge is a smart contract development framework designed to simplify the
 development of smart contracts for the
 [Dusk VM](https://github.com/dusk-network/rusk/tree/master/vm). It provides
 macros to automatically generate the boilerplate code required for interfacing
@@ -11,9 +11,9 @@ smart contracts with the Dusk VM.
 
 ## Usage
 
-The main feature of `dusk-forge` is the `#[contract]` attribute macro. This
-macro automatically generates wrapper functions required for interfacing with
-the Dusk VM, reducing boilerplate code in your project.
+The main feature of Dusk Forge is the `#[contract]` attribute macro. This macro
+automatically generates wrapper functions required for interfacing with the Dusk
+VM, reducing boilerplate code in your project.
 
 Add `dusk_forge` as a dependency to your contract project:
 

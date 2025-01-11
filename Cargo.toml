@@ -9,7 +9,7 @@ license = "MPL-2.0"
 [dependencies]
 syn = { version = "2.0.44", features = ["full"] }
 quote = "1.0.34"
-piecrust-uplink = "0.9.0"
+dusk-core = { version = "0.1.0", git = "https://github.com/dusk-network/rusk/" }
 
 [lib]
 proc-macro = true
