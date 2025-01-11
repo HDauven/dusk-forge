@@ -14,9 +14,14 @@ and this project adheres to
 
 - Move contract macro to Dusk Forge [#1]
 
+### Changed
+
+- Separate contract macro impl from lib.rs [#2]
+
 <!-- ISSUES -->
 
 [#1]: https://github.com/HDauven/dusk-forge/issues/1
+[#2]: https://github.com/HDauven/dusk-forge/issues/2
 
 <!-- VERSIONS -->
 
