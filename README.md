@@ -9,6 +9,8 @@ development of smart contracts for the
 macros to automatically generate the boilerplate code required for interfacing
 smart contracts with the Dusk VM.
 
+⚠️ **This crate requires the nightly Rust compiler.**
+
 ## Usage
 
 The main feature of Dusk Forge is the `#[contract]` attribute macro. This macro
