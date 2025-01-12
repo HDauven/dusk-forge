@@ -18,12 +18,14 @@ and this project adheres to
 
 - Separate contract macro impl from lib.rs [#2]
 - Move from `piecrust-uplink` to `dusk-core` & `dusk-vm` [#3]
+- Split `contract` macro into multiple smaller parts under contract module [#4]
 
 <!-- ISSUES -->
 
 [#1]: https://github.com/HDauven/dusk-forge/issues/1
 [#2]: https://github.com/HDauven/dusk-forge/issues/2
 [#3]: https://github.com/HDauven/dusk-forge/issues/3
+[#4]: https://github.com/HDauven/dusk-forge/issues/4
 
 <!-- VERSIONS -->
 

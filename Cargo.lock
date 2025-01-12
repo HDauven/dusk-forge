@@ -254,6 +254,7 @@ name = "dusk-forge"
 version = "0.1.0"
 dependencies = [
  "dusk-core",
+ "proc-macro2",
  "quote",
  "syn 2.0.96",
 ]

@@ -7,9 +7,9 @@ description = "A smart contract development framework for Dusk"
 license = "MPL-2.0"
 
 [dependencies]
-syn = { version = "2.0.96", features = ["full"] }
+syn = { version = "2.0.96", features = ["full", "visit-mut"] }
 quote = "1.0.38"
 dusk-core = { version = "0.1.0", git = "https://github.com/dusk-network/rusk/", branch = "master" }
-
+proc-macro2 = "1.0.93"
 [lib]
 proc-macro = true
