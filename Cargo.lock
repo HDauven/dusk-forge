@@ -231,7 +231,8 @@ dependencies = [
 [[package]]
 name = "dusk-core"
 version = "0.1.0"
-source = "git+https://github.com/dusk-network/rusk/?branch=master#5f3cffcae374d4a33d5f381d19e1a70ff5b77b78"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ce665e78c3616ffb942adb7497ccc2dfe8484cd82cffb6f753a236d5540ea7ce"
 dependencies = [
  "bls12_381-bls",
  "bytecheck",
