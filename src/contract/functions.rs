@@ -15,46 +15,6 @@ use syn::{FnArg, Ident, ImplItem, ItemImpl, Pat, Visibility};
 /// # Returns
 /// A vector of token streams representing all generated `no_mangle` functions.
 ///
-/// # Example
-///
-/// ## Input
-/// ```rust
-/// pub struct MyContract {
-///     balance: u64,
-/// }
-///
-/// impl MyContract {
-///     pub fn update_balance(&mut self, account: Address, amount: u64) -> bool {
-///         // Function implementation
-///     }
-///
-///     pub fn get_balance(&self, account: Address) -> u64 {
-///         // Function implementation
-///     }
-///
-///     fn private_helper(&self) {
-///         // Not exposed
-///     }
-/// }
-/// ```
-///
-/// ## Generated Output
-/// ```rust
-/// #[no_mangle]
-/// pub unsafe fn update_balance(arg_len: u32) -> u32 {
-///     dusk_core::abi::wrap_call(arg_len, |(account, amount): (Address, u64)| {
-///         my_contract::STATE.update_balance(account, amount)
-///     })
-/// }
-///
-/// #[no_mangle]
-/// pub unsafe fn get_balance(arg_len: u32) -> u32 {
-///     dusk_core::abi::wrap_call(arg_len, |(account): (Address)| {
-///         my_contract::STATE.get_balance(account)
-///     })
-/// }
-/// ```
-///
 /// Private methods such as `private_helper` will not have wrappers generated.
 pub fn generate_public_functions(impl_blocks: &[ItemImpl], mod_name: &Ident) -> Vec<TokenStream> {
     impl_blocks

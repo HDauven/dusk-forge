@@ -26,6 +26,8 @@ use syn::{visit_mut::VisitMut, Expr, Ident, ItemMod};
 ///
 /// ## Input
 /// ```rust
+/// use dusk_forge::contract;
+///
 /// #[contract]
 /// pub mod my_contract {
 ///     pub struct MyStruct {
