@@ -3,59 +3,119 @@
 [![Repository](https://img.shields.io/badge/github-dusk%20forge-blueviolet?logo=github)](https://github.com/HDauven/dusk-forge)
 [![Documentation](https://img.shields.io/badge/docs-dusk%20forge-blue?logo=rust)](https://docs.rs/dusk-forge/)
 
-Dusk Forge is a smart contract development framework designed to simplify the
-development of smart contracts for the
-[Dusk VM](https://github.com/dusk-network/rusk/tree/master/vm). It provides
-macros to automatically generate the boilerplate code required for interfacing
-smart contracts with the Dusk VM.
+Dusk Forge is a framework designed to simplify the development of smart
+contracts for the [Dusk blockchain](https://github.com/dusk-network/rusk/). It
+provides macros to reduce boilerplate, allow developers to focus on implementing
+core business logic.
 
 ⚠️ **This crate requires the nightly Rust compiler.**
 
 ## Usage
 
-The main feature of Dusk Forge is the `#[contract]` attribute macro. This macro
-automatically generates wrapper functions required for interfacing with the Dusk
-VM, reducing boilerplate code in your project.
+The main feature of Dusk Forge is the `#[contract]` attribute macro, which
+automates boilerplate generation. Here's how to get started:
 
-Add `dusk_forge` as a dependency to your contract project:
+### Installation
+
+Add `dusk_forge` as a dependency to your project:
 
 ```sh
 cargo add dusk_forge
 ```
 
-To use the macro, import it into your Rust smart contract and annotate your
-contract's implementation with #[contract]:
+### Basic Example: Counter Contract
 
 ```rust
 #![no_std]
 
 use dusk_forge::contract;
 
-/// Struct that describes the state of the Counter contract
-pub struct Counter {
-    value: i64,
-}
-
-/// State of the Counter contract
-static mut STATE: Counter = Counter { value: 0xfc };
-
 #[contract]
-impl Counter {
-    /// Read the value of the counter
-    pub fn read_value(&self) -> i64 {
-        self.value
+pub mod counter {
+    pub struct Counter {
+        value: i64,
     }
 
-    /// Increment the value of the counter by 1
-    pub fn increment(&mut self) {
-        let value = self.value + 1;
-        self.value = value;
+    impl Counter {
+        pub fn new() -> Self {
+            Self { value: 0 }
+        }
+
+        pub fn read_value(&self) -> i64 {
+            self.value
+        }
+
+        pub fn increment(&mut self) {
+            let value = self.value + 1;
+            self.value = value;
+        }
     }
 }
 ```
 
-With #[contract], the macro automatically generates the necessary wrapper
-functions for each public method in the impl block you want to expose.
+### What Happes Under the Hood?
+
+The `#[contract]` macro transforms the module into a contract-ready state by:
+
+1. Generating a `static mut STATE` for the contract's state:
+
+```rust
+pub(crate) static mut STATE: Counter = Counter { value: 0 };
+```
+
+2. Wrapping public methods with `no_mangle` functions for Dusk VM compatibility:
+
+```rust
+#[no_mangle]
+pub unsafe fn read_value(arg_len: u32) -> u32 {
+    dusk_core::abi::wrap_call(arg_len, |(): ()| counter::STATE.read_value())
+}
+
+#[no_mangle]
+pub unsafe fn increment(arg_len: u32) -> u32 {
+    dusk_core::abi::wrap_call(arg_len, |(): ()| counter::STATE.increment())
+}
+```
+
+### Advanced Example: Struct with Complex State
+
+```rust
+#![no_std]
+
+use dusk_forge::contract;
+
+#[contract]
+pub mod complex_contract {
+    pub struct AccountManager {
+        accounts: core::collections::BTreeMap<u64, i64>,
+    }
+
+    impl AccountManager {
+        pub fn new() -> Self {
+            Self {
+                accounts: core::collections::BTreeMap::new(),
+            }
+        }
+
+        pub fn add_account(&mut self, id: u64, balance: i64) {
+            self.accounts.insert(id, balance);
+        }
+
+        pub fn get_balance(&self, id: u64) -> Option<i64> {
+            self.accounts.get(&id).cloned()
+        }
+    }
+}
+```
+
+## Testing
+
+Dusk Force includes tests for macro transformations and tests for individual
+components. Run tests using:
+
+```sh
+cargo test
+```
 
 ## Release History
 
