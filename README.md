@@ -1,7 +1,17 @@
-# Dusk Forge
+<h1 align="center">
+Dusk Forge
+</h1>
 
-[![Repository](https://img.shields.io/badge/github-dusk%20forge-blueviolet?logo=github)](https://github.com/HDauven/dusk-forge)
-[![Documentation](https://img.shields.io/badge/docs-dusk%20forge-blue?logo=rust)](https://docs.rs/dusk-forge/)
+<img src="./assets/dusk-forge-illustration.png"  alt="Dusk Forge Illustration"></img>
+
+<p align="center">
+<a href="https://github.com/HDauven/dusk-forge">
+  <img src="https://img.shields.io/badge/github-dusk%20forge-blueviolet?logo=github" alt="Repository">
+</a>
+<a href="https://docs.rs/dusk-forge/">
+  <img src="https://img.shields.io/badge/docs-dusk%20forge-blue?logo=rust" alt="Documentation">
+</a>
+</p>
 
 Dusk Forge is a framework designed to simplify the development of smart
 contracts for the [Dusk blockchain](https://github.com/dusk-network/rusk/). It
@@ -126,6 +136,11 @@ To see the release history for this crate, please see the
 
 This code is licensed under the Mozilla Public License Version 2.0 (MPL-2.0).
 Please see the [LICENSE](./LICENSE) for further details.
+
+The included illustration is created by
+[Regisha Dauven](https://regishadauven.com/) and is used with exclusive
+permission. Redistribution, modification, or reuse of the illustration by third
+parties is prohibited without explicit permission from the creator.
 
 ## Contribute
 
