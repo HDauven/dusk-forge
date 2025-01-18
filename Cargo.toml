@@ -5,6 +5,9 @@ version = "0.1.0"
 edition = "2021"
 description = "A smart contract development framework for Dusk"
 license = "MPL-2.0"
+repository = "https://github.com/HDauven/dusk-forge"
+keywords = ["dusk", "smart-contract", "blockchain"]
+categories = ["development-tools"]
 
 [dependencies]
 syn = { version = "2.0.96", features = ["full", "visit-mut"] }
