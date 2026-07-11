@@ -2,6 +2,12 @@
 Dusk Forge
 </h1>
 
+> [!WARNING]
+> This repository is deprecated and will remain available only as a historical
+> snapshot. Active development has moved to
+> [dusk-network/forge](https://github.com/dusk-network/forge). Please use the
+> Dusk Network repository for current code, issues, and pull requests.
+
 <img src="https://github.com/HDauven/dusk-forge/blob/5a138b30329617074858218d88022c56250f2954/assets/dusk-forge-illustration.png"  alt="Dusk Forge Illustration"></img>
 
 <p align="center">
@@ -144,5 +150,5 @@ parties is prohibited without explicit permission from the creator.
 
 ## Contribute
 
-If you want to contribute to this project, feel free to open an issue, fork the
-repository and open a pull request.
+This repository is archived. Contributions should go to
+[dusk-network/forge](https://github.com/dusk-network/forge).
